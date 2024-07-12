@@ -1,0 +1,28 @@
+# Pick And Place List
+# Company=
+# Author=
+# eMail=
+#
+# Project=billow.01
+# Date=08:50:06
+# CreatedBy=Fritzing 1.0.2b.2023-12-20.1.0.2rc2-1-gdbdbe34c
+#
+#
+# Coordinates in mils, always center of component
+# Origin 0/0=Lower left corner of PCB
+# Rotation in degree (0-360, math. pos.)
+#
+RefDes,Description,Package,X,Y,Rotation,Side,Mount
+Description: resistance;capacitance;inductance;voltage;current;power;mpn;mn;
+S22,";;;;;;;;","switch-spdt_lock.007s",3798.06,366.064,180,Top,SMT
+2K1,";;;;;0.5W;;;","THT",445.982,906.142,-90,Top,THT
+S20,";;;;;;;;","THT",2623.6,259.364,90,Top,THT
+2K3,";;;;;0.5W;;;","THT",1873.6,906.142,-90,Top,THT
+S21,";;;;;;;;","THT",3340.68,259.364,90,Top,THT
+S19,";;;;;;;;","THT",1878.96,259.364,90,Top,THT
+2K5,";;;;;0.5W;;;","THT",3318.37,906.142,-90,Top,THT
+S18,";;;;;;;;","THT",1171.93,259.364,90,Top,THT
+2K4,";;;;;0.5W;;;","THT",2613.3,906.142,-90,Top,THT
+S17,";;;;;;;;","THT",460.615,259.364,90,Top,THT
+2K2,";;;;;0.5W;;;","THT",1157.53,906.142,-90,Top,THT
+J3,";;;;;;;;","THT",84.6589,863.438,0,Top,THT
