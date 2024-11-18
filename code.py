@@ -11,6 +11,7 @@ from adafruit_motor import motor
 from analogio import AnalogIn
 from digitalio import DigitalInOut, Direction, Pull
 from neopixel import NeoPixel
+from random import randint
 
 # from neopixel foo
 #pin = Pin(16, Pin.OUT)   # set GPI=16 to output to drive NeoPixels
@@ -44,19 +45,19 @@ neo_pixel (0)
 
 # from MIDI to cv skull mappings approx
 volts = {
-    48:0.000,
-    49:.083,
-    50:.167,
-    51:.250,
-    52:.333,
-    53:.417,
-    54:.500,
-    55:.583,
-    56:.667,
-    57:.750,
-    58:.833,
-    59:.917,
-    60:1.000,
+    72:0.000,
+    73:.083,
+    74:.167,
+    75:.250,
+    76:.333,
+    77:.417,
+    78:.500,
+    79:.583,
+    80:.667,
+    81:.750,
+    82:.833,
+    83:.917,
+    84:1.000,
 }
     
 
@@ -123,15 +124,14 @@ while True:
     # if we're in midi mode
     
     if msg is not None:
-        neo_pixel (1)
         if isinstance(msg, NoteOn):
             notesOn += 1
             string_msg = 'NoteOn'
-            neo_pixel (1)
             #  get note number
             string_val = str(msg.note)
             print("\nnote:",string_val)
-            if msg.note < 73:
+            if msg.note < 75:
+                neo_pixel ((0,randint(msg.note,255),255))
                 note = msg.note - 48
                 #mv = midi_to_mv(msg.note)
                 mv = (note * 0.03) + 0.2
@@ -142,6 +142,14 @@ while True:
                 cassette.throttle = (mv)
                 mapped_speed = mv
                 time.sleep(0.1)
+            if msg.note > 74 and msg.note < 86:
+                neo_pixel ((randint(msg.note,255),0,randint(msg.note,255)))
+                #mv = midi_to_mv(msg.note)
+                mv = volts[msg.note]
+                print(mv, msg.note)
+                #mcp4728.channel_a.raw_value = (mv)
+                cassette.throttle = (mv)
+                mapped_speed = mv
         if isinstance(msg, NoteOff):
             if notesOn > 0 :
                 notesOn -= 1
