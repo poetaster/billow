@@ -13,7 +13,7 @@ Billow is very simple :) Take a tape player, remove the speed fine adjust trim p
 The gerbers directory in this repository contains all the files you need to have a pcb house make pcbs for you. Generally, you just 'zip' the directory and upload.
 
 ## Midi Billow
-![Midi Billow](mbillo-3.jpg)
+![Midi Billow](mbillo-1.jpg)
 ![Midi Billow pcb]( midibillow-pcb.jpg)
 
 
