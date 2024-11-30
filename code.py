@@ -45,19 +45,17 @@ neo_pixel (0)
 
 # from MIDI to cv skull mappings approx
 volts = {
-    72:0.000,
-    73:.083,
-    74:.167,
-    75:.250,
-    76:.333,
-    77:.417,
-    78:.500,
-    79:.583,
-    80:.667,
-    81:.750,
-    82:.833,
-    83:.917,
-    84:1.000,
+    64:.180,
+    65:.250,
+    66:.333,
+    67:.417,
+    68:.500,
+    69:.583,
+    70:.667,
+    71:.750,
+    72:.833,
+    73:.917,
+    74:1.000,
 }
     
 
@@ -130,11 +128,11 @@ while True:
             #  get note number
             string_val = str(msg.note)
             print("\nnote:",string_val)
-            if msg.note < 75:
+            if msg.note < 64 and msg.note > 48:
                 neo_pixel ((0,randint(msg.note,255),255))
                 note = msg.note - 48
                 #mv = midi_to_mv(msg.note)
-                mv = (note * 0.03) + 0.2
+                mv = (note * 0.053) + 0.2
                 print(mv, "V")
                 #mv = volts[note]
                 #print(mv)
@@ -142,7 +140,7 @@ while True:
                 cassette.throttle = (mv)
                 mapped_speed = mv
                 time.sleep(0.1)
-            if msg.note > 74 and msg.note < 86:
+            if msg.note > 64 and msg.note < 75:
                 neo_pixel ((randint(msg.note,255),0,randint(msg.note,255)))
                 #mv = midi_to_mv(msg.note)
                 mv = volts[msg.note]
